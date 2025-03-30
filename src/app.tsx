@@ -1,6 +1,6 @@
 import type { Endpoints } from '@octokit/types';
 import { Octokit } from 'octokit';
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 import {
@@ -19,7 +19,7 @@ const App = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo | undefined>(undefined);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     const octokit = new Octokit();
